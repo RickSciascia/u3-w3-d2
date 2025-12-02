@@ -31,6 +31,7 @@ const Details = function () {
 
   useEffect(() => {
     getArtDetails();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <>
@@ -44,17 +45,17 @@ const Details = function () {
               </div>
             ) : (
               <Card>
-                <Card.Img variant="top" src={artDetails.image_url} />
+                <Card.Img variant="top" src={artDetails?.image_url} />
                 <Card.Body>
-                  <Card.Title>{artDetails.title}</Card.Title>
+                  <Card.Title>{artDetails?.title}</Card.Title>
                   <Card.Subtitle>
-                    Articolo di {artDetails.authors[0].name} - per{" "}
-                    {artDetails.news_site}
+                    Articolo di {artDetails?.authors[0].name} - per{" "}
+                    {artDetails?.news_site}
                   </Card.Subtitle>
                   <Card.Text>
                     Pubblicato il {artDetails?.published_at.slice(0, 10)}{" "}
                   </Card.Text>
-                  <Card.Text>{artDetails.summary}</Card.Text>
+                  <Card.Text>{artDetails?.summary}</Card.Text>
                   <Button
                     variant="primary"
                     onClick={() => {

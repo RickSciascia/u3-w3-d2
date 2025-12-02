@@ -43,7 +43,7 @@ const Home = function () {
           <Row className="justify-content-center">
             <Col xs={12} md={6}>
               <h1 className="text-center">NEWS IN EVIDENZA</h1>
-              {arrayOfArticles.results.map((art) => {
+              {arrayOfArticles?.results.map((art) => {
                 return (
                   <Card key={art.id} className="mt-3">
                     <Card.Img variant="top" src={art.image_url} />
