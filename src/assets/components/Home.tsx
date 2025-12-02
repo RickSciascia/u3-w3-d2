@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import { Container, Row, Col, Card, Button, Spinner } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 const endpoint = "https://api.spaceflightnewsapi.net/v4/articles";
 import { type Articles } from "../types/interface";
 
 const Home = function () {
   const [arrayOfArticles, setArrayOfArticles] = useState<Articles | null>(null);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
   const getArticles = function () {
     fetch(endpoint)
       .then((r) => {
@@ -16,7 +18,6 @@ const Home = function () {
         }
       })
       .then((dataArticles) => {
-        console.log(dataArticles);
         setArrayOfArticles(dataArticles);
         setLoading(false);
       })
@@ -48,12 +49,18 @@ const Home = function () {
                     <Card.Img variant="top" src={art.image_url} />
                     <Card.Body>
                       <Card.Title>{art.title}</Card.Title>
-                      <Card.Text>{art.summary}</Card.Text>
                       <Card.Text>
                         Di: {art.authors[0].name} Pubblicato il :{" "}
                         {art.published_at.slice(0, 10)}
                       </Card.Text>
-                      <Button variant="primary">Leggi</Button>
+                      <Button
+                        variant="primary"
+                        onClick={() => {
+                          navigate(`/details/${art.id}`);
+                        }}
+                      >
+                        Leggi
+                      </Button>
                     </Card.Body>
                   </Card>
                 );
