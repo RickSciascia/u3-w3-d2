@@ -7,16 +7,16 @@ const MyNavbar = function () {
   return (
     <Navbar expand="lg" bg="dark" data-bs-theme="dark">
       <Container fluid>
-        <Link className="navbar-brand" to="#home">
+        <Link className="navbar-brand" to="/">
           Spaceflight News
         </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Link className="nav-link" to="#home">
+            <Link className="nav-link" to="/">
               Home
             </Link>
-            <Link className="nav-link" to="#link">
+            <Link className="nav-link" to="/404">
               Details
             </Link>
           </Nav>
